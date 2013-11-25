@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.Timer;
 
+import yas.utils.Constants;
 import yas.utils.WinRegistry;
 
 @SuppressWarnings( "serial" )
@@ -115,8 +116,8 @@ public class DefineWorkspace extends JFrame implements ActionListener {
             {
 
                 try {
-                    WinRegistry.createKey( WinRegistry.HKEY_CURRENT_USER, "Software\\JIDENSAO" );
-                    WinRegistry.writeStringValue( WinRegistry.HKEY_CURRENT_USER, "Software\\JIDENSAO", "Workspace",
+                    WinRegistry.createKey( WinRegistry.HKEY_CURRENT_USER, Constants.registryPath );
+                    WinRegistry.writeStringValue( WinRegistry.HKEY_CURRENT_USER, Constants.registryPath, "Workspace",
                             file.getAbsolutePath() );
                 } catch ( IllegalArgumentException | IllegalAccessException
                         | InvocationTargetException e1 ) {
