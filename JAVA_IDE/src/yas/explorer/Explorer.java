@@ -45,6 +45,7 @@ import yas.editeur.EditeurConfig;
 import yas.editeur.TitrePan;
 import yas.output.ChooseMain;
 import yas.output.Output;
+import yas.utils.Constants;
 import yas.utils.Jdom;
 import yas.utils.WinRegistry;
 
@@ -67,7 +68,7 @@ public class Explorer extends JPanel implements TreeSelectionListener {
 
         try {
             WORKSPACE = WinRegistry.readString( WinRegistry.HKEY_CURRENT_USER,
-                    "Software\\JIDENSAO", "Workspace" );
+                    Constants.registryPath, "Workspace" );
         } catch ( IllegalArgumentException | IllegalAccessException
                 | InvocationTargetException e1 ) {
             e1.printStackTrace();
@@ -279,7 +280,7 @@ public class Explorer extends JPanel implements TreeSelectionListener {
     public void valueChanged( TreeSelectionEvent event ) {
         chemin = event.getPath().toString().replaceAll( "\\s", "" );
 
-        currentSelectionField.setText( "Current Selection: " + chemin );
+        currentSelectionField.setText( chemin );
     }
 
     public static void HowMany( File fileEncours, int etat ) {

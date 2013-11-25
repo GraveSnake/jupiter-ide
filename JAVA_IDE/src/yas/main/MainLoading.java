@@ -17,6 +17,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import org.apache.commons.io.FileUtils;
 
 import yas.explorer.Explorer;
+import yas.utils.Constants;
 import yas.utils.ImagePanel;
 import yas.utils.Jdom;
 import yas.utils.WinRegistry;
@@ -64,7 +65,7 @@ public class MainLoading extends JWindow {
 
         try {
             WP = WinRegistry.readString( WinRegistry.HKEY_CURRENT_USER,
-                    "Software\\JIDENSAO", "Workspace" );
+                    Constants.registryPath, "Workspace" );
         } catch ( IllegalArgumentException | IllegalAccessException
                 | InvocationTargetException e ) {
             System.out.println( "Problem reading Reg" );
